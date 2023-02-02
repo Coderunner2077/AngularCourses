@@ -1,0 +1,16 @@
+<div class="face-snap-card">
+  <h2>{{ faceSnap.title }}</h2>
+  <p>Mise en ligne le {{ faceSnap.createdAt.toLocaleDateString() }}</p>
+  <p class="face-snap-img">
+    <img [alt]="faceSnap.title" [src]="faceSnap.imageSrc" />
+  </p>
+  <p>{{ faceSnap.description }}</p>
+  <p *ngIf="faceSnap.location === 'Paris'">Location: {{ faceSnap.location }}</p>
+  <p class="snap-container">
+    <button (click)="onFaceSnap()">
+      {{ snapped ? "Snapped" : "Snap!" }}
+    </button>
+    <span>👌 {{ faceSnap.snaps }}</span>
+  </p>
+
+</div>
