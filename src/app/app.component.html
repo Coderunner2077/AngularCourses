@@ -1,3 +1,4 @@
-<app-face-snap [faceSnap]="mySnap" *ngIf="mySnap.snaps < 7"></app-face-snap>
-<app-face-snap [faceSnap]="myOtherSnap" *ngIf="myOtherSnap.snaps <= 12"></app-face-snap>
-<app-face-snap [faceSnap]="myFinalSnap" *ngIf="myFinalSnap.snaps > 5"></app-face-snap>
+<app-face-snap *ngFor="let snap of faceSnaps" [faceSnap]="snap"></app-face-snap>
+<!-- // Can't have multiple template bindings on one element (error on *ngIf)
+<app-face-snap *ngFor="let snapFace of faceSnaps" [faceSnap]="snapFace" *ngIf="myFinalSnap.snaps > 5"></app-face-snap>
+-->
