@@ -25,6 +25,7 @@ export class FaceSnap {
   ) { }
   */
   // Ou alors, sans constructeur... (ce sera instancié sans le mot clé "new" mais comme un objet)
+  id!: number;
   title!: string;
   description!: string;
   createdAt!: Date;

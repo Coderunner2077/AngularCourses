@@ -5,8 +5,9 @@ import { FaceSnap } from "../models/face-snap.model";
   providedIn: "root"
 })
 export class FaceSnapService {
-  faceSnaps: FaceSnap[] = [
+  private faceSnaps: FaceSnap[] = [
     {
+      id: 1,
       title: "Archibald",
       description: "Mon meilleur ami depuis tout petit !",
       createdAt: new Date(),
@@ -15,6 +16,7 @@ export class FaceSnapService {
       location: "Paris"
     },
     {
+      id: 2,
       title: "Mon petit cheval",
       description: "Mon meilleur cheval depuis tout petit !",
       createdAt: new Date(),
@@ -23,6 +25,7 @@ export class FaceSnapService {
       location: "Marseille"
     },
     {
+      id: 3,
       title: "Petit Castor",
       description: "Le plus beau castor dans les parages !",
       createdAt: new Date(),
@@ -30,6 +33,7 @@ export class FaceSnapService {
       imageSrc: "https://www.grand-parc.fr/image/visuel/affut-au-castor-mobile.jpg"
     },
     {
+      id: 4,
       title: "Mon petit cheval",
       description: "Mon meilleur cheval depuis tout petit !",
       createdAt: new Date(),
@@ -38,4 +42,14 @@ export class FaceSnapService {
       location: "Marseille"
     }
   ]
+
+  getAllFaceSnaps(): FaceSnap[] {
+    return this.faceSnaps;
+  }
+
+  snapById(id: number, snapped: boolean): void {
+    const faceSnap = this.faceSnaps.find((snap) => snap.id === id);
+    if (!faceSnap) throw new Error("FaceSnap not found");
+    faceSnap.snaps = snapped ? faceSnap.snaps - 1 : faceSnap.snaps + 1;
+  }
 }
