@@ -69,4 +69,8 @@ export class FaceSnapService {
   isSnapped(id: number): boolean {
     return this.snappedIds.includes(id);
   }
+
+  getFaceSnapById(id: number) {
+    return this.faceSnaps.find((snap) => snap.id === id);
+  }
 }

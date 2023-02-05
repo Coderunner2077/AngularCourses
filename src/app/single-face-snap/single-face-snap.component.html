@@ -1,0 +1,24 @@
+<div class="face-snap-card" [ngClass]="{ snapped }" *ngIf="faceSnap">
+  <h2>{{ faceSnap.title | titlecase }}</h2>
+  <p>Mise en ligne le {{ faceSnap.createdAt | date: "longDate" }}</p>
+  <p class="face-snap-img">
+    <img [alt]="faceSnap.title" [src]="faceSnap.imageSrc" />
+  </p>
+  <p>{{ faceSnap.description | lowercase }}</p>
+  <p *ngIf="faceSnap.location === 'Paris'">Location: {{ faceSnap.location }}</p>
+  <p class="snap-container">
+    <button (click)="onFaceSnap()">
+      {{ snapped ? "Snapped" : "Snap!" }}
+    </button>
+    <span [ngStyle]="{ color: 'rgb(0, ' + faceSnap.snaps * 20 + ', 0)'}">👌 {{ faceSnap.snaps }}</span>
+  </p>
+</div>
+
+<div class="face-snap-card" *ngIf="!faceSnap">
+  <h3>Facesnap with such id doesn't exist</h3>
+</div>
+
+<div class="go-back">
+  <a routerLink="/facesnaps">Back to Facesnaps</a>
+  <!-- routerLink="facesnaps" would have added 'facesnaps' to the current location's path -->
+</div>

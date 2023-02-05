@@ -1,21 +1,10 @@
 <div class="face-snap-card" [ngClass]="{ snapped }">
   <h2>{{ faceSnap.title | titlecase }}</h2>
-  <ul>
-    <li>{{ faceSnap.snaps | number : "2.1-1" }}</li>
-    <li>{{ 0.3436 | percent : "1.1" }}</li>
-    <li>
-      {{ 2180 | currency : "EUR" : "symbol" : "1.1-2" }}
-    </li>
-  </ul>
   <p>Mise en ligne le {{ faceSnap.createdAt | date: "longDate" }}</p>
-  <p class="face-snap-img">
-    <img [alt]="faceSnap.title" [src]="faceSnap.imageSrc" />
-  </p>
   <p>{{ faceSnap.description | lowercase }}</p>
-  <p *ngIf="faceSnap.location === 'Paris'">Location: {{ faceSnap.location }}</p>
   <p class="snap-container">
-    <button (click)="onFaceSnap()">
-      {{ snapped ? "Snapped" : "Snap!" }}
+    <button (click)="onViewSnap()">
+      View
     </button>
     <span [ngStyle]="{ color: 'rgb(0, ' + faceSnap.snaps * 20 + ', 0)'}">👌 {{ faceSnap.snaps }}</span>
   </p>
