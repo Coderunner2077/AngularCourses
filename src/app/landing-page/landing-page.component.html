@@ -1,6 +1,6 @@
 <h2>Bienvenue sur Snapface !</h2>
 <p>
-  <a routerLink="facesnaps">Continuer vers Facesnaps</a>
+  <button (click)="onContinue()">Continuer vers Facesnaps</button>
 </p>
 <div *ngIf="snappedFaces.length > 0">
   <h3>Les FaceSnaps que vous avez snappé</h3>
