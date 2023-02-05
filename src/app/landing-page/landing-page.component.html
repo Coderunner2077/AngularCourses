@@ -4,5 +4,5 @@
 </p>
 <div *ngIf="snappedFaces.length > 0">
   <h3>Les FaceSnaps que vous avez snappé</h3>
-  <app-face-snap *ngFor="let snap of snappedFaces" [faceSnap]="snap" [isSnapped]="true"></app-face-snap>
+  <app-face-snap *ngFor="let snap of snappedFaces" [faceSnap]="snap"></app-face-snap>
 </div>

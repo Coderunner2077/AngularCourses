@@ -9,13 +9,12 @@ import { FaceSnapService } from '../services/face-snap.service';
 })
 export class FaceSnapComponent implements OnInit {
   @Input() faceSnap!: FaceSnap;
-  @Input() isSnapped!: boolean;
   snapped!: boolean;
 
   constructor(private faceSnapService: FaceSnapService) { }
 
   ngOnInit(): void {
-    this.snapped = this.isSnapped !== undefined ?? false;
+    this.snapped = this.faceSnapService.isSnapped(this.faceSnap.id);
   }
 
   onFaceSnap(): void {

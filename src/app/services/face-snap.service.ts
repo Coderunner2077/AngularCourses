@@ -65,4 +65,8 @@ export class FaceSnapService {
   getSnappedFaces(): FaceSnap[] {
     return this.faceSnaps.filter(faceSnap => this.snappedIds.includes(faceSnap.id));
   }
+
+  isSnapped(id: number): boolean {
+    return this.snappedIds.includes(id);
+  }
 }
