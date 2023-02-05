@@ -1,8 +1,33 @@
 header {
-  padding: 30px;
+  padding-top: 30px;
   margin-bottom: 20x;
   background-color: #eee;
-  font-size: 3em;
   text-align: center;
-  font-weight: 800;
+
+  h1 {
+    font-weight: 800;
+    font-size: 3em;
+  }
+
+}
+
+nav {
+  margin-top: 10px;
+
+  a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: #333;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .active {
+    color: #5555ff;
+    text-decoration: underline;
+  }
+
+
 }

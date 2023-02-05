@@ -43,14 +43,10 @@ export class FaceSnapService {
     }
   ]
 
-  private snappedFaces: FaceSnap[] = []
+  private snappedIds: number[] = []
 
   getAllFaceSnaps(): FaceSnap[] {
     return this.faceSnaps;
-  }
-
-  getSnappedFaces(): FaceSnap[] {
-    return this.snappedFaces;
   }
 
   snapById(id: number, snapped: boolean): void {
@@ -58,11 +54,15 @@ export class FaceSnapService {
     if (!faceSnap) throw new Error("FaceSnap not found");
     if (snapped) {
       faceSnap.snaps--;
-      this.snappedFaces = this.faceSnaps.filter(snap => snap.id !== id);
+      this.snappedIds = this.snappedIds.filter(spappedId => spappedId !== id);
     }
     else {
       faceSnap.snaps++;
-      this.snappedFaces.push({ ...faceSnap });
+      this.snappedIds.push(id);
     }
+  }
+
+  getSnappedFaces(): FaceSnap[] {
+    return this.faceSnaps.filter(faceSnap => this.snappedIds.includes(faceSnap.id));
   }
 }
