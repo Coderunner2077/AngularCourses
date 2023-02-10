@@ -6,3 +6,8 @@
   <h3>Les FaceSnaps que vous avez snappé</h3>
   <app-face-snap *ngFor="let snap of snappedFaces" [faceSnap]="snap"></app-face-snap>
 </div>
+<form #emailForm="ngForm" (ngSubmit)="onSubmitForm(emailForm)">
+  <label for="emailInput">Inscrivez-vous pour recevoir notre newsletter !</label>
+  <input id="emailInput" name="userEmail" type="email" [(ngModel)]="userEmail">
+  <button type="submit">OK!</button>
+</form>

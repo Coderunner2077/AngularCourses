@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from "@angular/forms";
 import { Router } from '@angular/router';
 import { FaceSnap } from '../models/face-snap.model';
 import { FaceSnapService } from '../services/face-snap.service';
@@ -10,14 +11,20 @@ import { FaceSnapService } from '../services/face-snap.service';
 })
 export class LandingPageComponent implements OnInit {
   snappedFaces!: FaceSnap[];
+  userEmail!: string;
 
   constructor(private faceSnapService: FaceSnapService, private router: Router) { }
 
   ngOnInit(): void {
     this.snappedFaces = this.faceSnapService.getSnappedFaces();
+    this.userEmail = "yo@yo.com"
   }
 
   onContinue(): void {
     this.router.navigateByUrl("facesnaps"); // or this.router.navigate(["/facesnaps"]);
+  }
+
+  onSubmitForm(form: NgForm) {
+    console.log(this.userEmail);
   }
 }
