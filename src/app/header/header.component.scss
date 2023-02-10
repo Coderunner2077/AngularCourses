@@ -8,7 +8,6 @@ header {
     font-weight: 800;
     font-size: 3em;
   }
-
 }
 
 nav {
@@ -29,5 +28,8 @@ nav {
     text-decoration: underline;
   }
 
-
+  button {
+    margin: 5px;
+    cursor: pointer;
+  }
 }
