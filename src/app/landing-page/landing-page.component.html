@@ -2,9 +2,8 @@
 <p>
   <button (click)="onContinue()">Continuer vers Facesnaps</button>
 </p>
-<div *ngIf="snappedFaces.length > 0">
-  <h3>Les FaceSnaps que vous avez snappé</h3>
-  <app-face-snap *ngFor="let snap of snappedFaces" [faceSnap]="snap"></app-face-snap>
+<div>
+  <app-face-snap *ngFor="let snap of snappedFaces$ | async as snappedFaces" [faceSnap]="snap"></app-face-snap>
 </div>
 <form #emailForm="ngForm" (ngSubmit)="onSubmitForm(emailForm)">
   <label for="emailInput">Inscrivez-vous pour recevoir notre newsletter !</label>

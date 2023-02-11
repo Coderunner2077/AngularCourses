@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 import { FaceSnap } from '../models/face-snap.model';
 import { FaceSnapService } from '../services/face-snap.service';
 
@@ -27,10 +27,14 @@ export class SingleFaceSnapComponent implements OnInit {
     )
   }
 
-  onFaceSnap(): void {
+  onFaceSnap(id: number): void {
     if (!this.faceSnap$) return;
-    //this.faceSnapService.snapById(this.faceSnap.id, this.snapped);
-    this.snapped = !this.snapped;
+    this.faceSnap$ = this.faceSnapService.snapById(id, this.snapped).pipe(
+      // switchMap((faceSnap: FaceSnap) => this.faceSnapService.getFaceSnapById(id)), // pas besoin car la requête put renvoie le faceSnap modifié
+      tap(() => {
+        this.snapped = !this.snapped;
+      })
+    );
   }
 
 }

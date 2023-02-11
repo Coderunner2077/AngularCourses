@@ -7,7 +7,7 @@
   <p>{{ faceSnap.description | lowercase }}</p>
   <p *ngIf="faceSnap.location === 'Paris'">Location: {{ faceSnap.location }}</p>
   <p class="snap-container">
-    <button (click)="onFaceSnap()">
+    <button (click)="onFaceSnap(faceSnap.id)">
       {{ snapped ? "Snapped" : "Snap!" }}
     </button>
     <span [ngStyle]="{ color: 'rgb(0, ' + faceSnap.snaps * 20 + ', 0)'}">👌 {{ faceSnap.snaps }}</span>
