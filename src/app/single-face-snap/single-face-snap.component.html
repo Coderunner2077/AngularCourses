@@ -1,4 +1,4 @@
-<div class="face-snap-card" [ngClass]="{ snapped }" *ngIf="faceSnap">
+<div class="face-snap-card" [ngClass]="{ snapped }" *ngIf="faceSnap$ | async as faceSnap">
   <h2>{{ faceSnap.title | titlecase }}</h2>
   <p>Mise en ligne le {{ faceSnap.createdAt | date: "longDate" }}</p>
   <p class="face-snap-img">
@@ -13,10 +13,12 @@
     <span [ngStyle]="{ color: 'rgb(0, ' + faceSnap.snaps * 20 + ', 0)'}">👌 {{ faceSnap.snaps }}</span>
   </p>
 </div>
+<ng-template *ngIf="notFound">
+  <div class="face-snap-card">
+    <h3>Facesnap with such id doesn't exist</h3>
+  </div>
+</ng-template>
 
-<div class="face-snap-card" *ngIf="!faceSnap">
-  <h3>Facesnap with such id doesn't exist</h3>
-</div>
 
 <div class="go-back">
   <a routerLink="/facesnaps">Back to Facesnaps</a>
