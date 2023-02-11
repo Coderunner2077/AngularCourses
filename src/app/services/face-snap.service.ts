@@ -73,4 +73,14 @@ export class FaceSnapService {
   getFaceSnapById(id: number) {
     return this.faceSnaps.find((snap) => snap.id === id);
   }
+
+  addFaceSnap(formValue: { title: string, description: string, imageSrc: string, location?: string }): void {
+    this.faceSnaps.unshift({
+      ...formValue,
+      createdAt: new Date(),
+      snaps: 0,
+      id: this.faceSnaps.reduce((id, snap) => id > snap.id ? id : snap.id + 1, 1)
+    })
+
+  }
 }
