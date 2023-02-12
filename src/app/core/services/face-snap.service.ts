@@ -8,8 +8,6 @@ import { FaceSnap } from "../models/face-snap.model";
   providedIn: "root"
 })
 export class FaceSnapService {
-  private faceSnaps: FaceSnap[] = [];
-  //private faceSnaps$!: Observable<FaceSnap[]>;
   api: string = "http://localhost:3000";
 
   private snappedIds: number[] = []
