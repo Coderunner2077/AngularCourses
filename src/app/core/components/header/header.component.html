@@ -7,7 +7,9 @@
     <a routerLink="facesnaps" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}">
       Facesnaps
     </a>
+    <a *ngIf="isAuthenticated === false" routerLink="auth/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      Login
+    </a>
     <button (click)="onAddNewFaceSnap()">+</button>
   </nav>
-
 </header>

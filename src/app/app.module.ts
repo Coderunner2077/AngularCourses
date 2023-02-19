@@ -5,12 +5,12 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from './core/core.module';
-import { FaceSnapsModule } from './face-snaps/face-snaps.module';
 import { LandingPageModule } from './landing-page/landing-page.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -18,7 +18,9 @@ import { LandingPageModule } from './landing-page/landing-page.module';
     FormsModule,
     ReactiveFormsModule,
     CoreModule,
-    LandingPageModule
+    LandingPageModule,
+    AuthModule
+    // FaceSnapsModule not imported here because lazy loaded
   ],
   bootstrap: [AppComponent]
 })
